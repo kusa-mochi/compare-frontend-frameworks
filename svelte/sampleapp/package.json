@@ -1,16 +1,43 @@
 {
-  "name": "svelte-app",
+  "name": "sampleapp",
+  "productName": "sampleapp",
+  "description": "sample electron app made with Svelte",
+  "author": "Mochi <whoatemyapplepie@gmail.com>",
+  "license": "MIT",
   "version": "1.0.0",
+  "main": "dist/index.js",
   "private": true,
+  "build": {
+    "appId": "sampleapp",
+    "directories": {
+      "output": "out"
+    },
+    "productName": "sampleapp.AppImage",
+    "asar": true,
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
+  },
   "scripts": {
     "build": "rollup -c",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "compile": "tsc",
+    "start": "npm run compile && electron .",
+    "nodemon": "nodemon",
+    "out:linux": "rollup -c && tsc && electron-builder build --publish never",
+    "publish:linux": "rollup -c && tsc && electron-builder build --publish always"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@tsconfig/svelte": "^2.0.0",
+    "electron": "^21.3.0",
+    "electron-builder": "^23.6.0",
+    "nodemon": "^2.0.20",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -19,12 +46,12 @@
     "svelte": "^3.0.0",
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",
-    "@rollup/plugin-typescript": "^8.0.0",
-    "typescript": "^4.0.0",
     "tslib": "^2.0.0",
-    "@tsconfig/svelte": "^2.0.0"
+    "typescript": "^4.9.3"
   },
   "dependencies": {
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-updater": "^5.3.0",
     "sirv-cli": "^2.0.0"
   }
 }
