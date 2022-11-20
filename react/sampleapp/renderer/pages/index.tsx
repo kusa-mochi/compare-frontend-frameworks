@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
+import Image from 'next/image'
+import TestImage from '../assets/test.jpg'
 
 const IndexPage = () => {
   useEffect(() => {
@@ -20,6 +23,11 @@ const IndexPage = () => {
 
   return (
     <Layout title="Home | Next.js + TypeScript + Electron Example">
+      <TransformWrapper>
+        <TransformComponent>
+          <Image src={TestImage} width={640} height={427} alt="test image" />
+        </TransformComponent>
+      </TransformWrapper>
       <h1>Hello Next.js 👋</h1>
       <button onClick={onSayHiClick}>Say hi to electron</button>
       <p>
