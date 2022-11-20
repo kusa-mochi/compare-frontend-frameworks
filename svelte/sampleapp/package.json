@@ -1,16 +1,25 @@
 {
   "name": "svelte-app",
   "version": "1.0.0",
+  "main": "./src/electron.js",
   "private": true,
   "scripts": {
     "build": "rollup -c",
+    "build-electron": "run-s build start-electron",
     "dev": "rollup -c -w",
+    "dev-electron": "run-p dev start-electron",
     "start": "sirv public --no-clear",
+    "start-electron": "electron .",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@tsconfig/svelte": "^2.0.0",
+    "cross-env": "^7.0.3",
+    "electron": "^21.3.0",
+    "npm-run-all": "^4.1.5",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -19,10 +28,8 @@
     "svelte": "^3.0.0",
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",
-    "@rollup/plugin-typescript": "^8.0.0",
-    "typescript": "^4.0.0",
     "tslib": "^2.0.0",
-    "@tsconfig/svelte": "^2.0.0"
+    "typescript": "^4.0.0"
   },
   "dependencies": {
     "sirv-cli": "^2.0.0"
