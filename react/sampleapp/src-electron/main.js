@@ -19,7 +19,8 @@ const createWindow = () => {
 
   // メインウィンドウに表示するURLを指定します
   // （今回はmain.jsと同じディレクトリのindex.html）
-  mainWindow.loadFile("index.html");
+  // mainWindow.loadFile("index.html");
+  mainWindow.loadFile("tmp/index.html");
 
   // デベロッパーツールの起動
   mainWindow.webContents.openDevTools();

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export"
+    "export": "next build && next export -o src-electron/tmp/",
+    "electron:build:linux": "next build && next export -o src-electron/tmp/ && electron-packager ./src-electron/ sampleapp.AppImage --platform=linux --arch=x64 --overwrite --electron-version=v21.3.0"
   },
   "dependencies": {
     "@types/node": "18.11.9",
