@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export -o src-electron/tmp/",
-    "electron:build:linux": "next build && next export -o src-electron/tmp/ && electron-packager ./src-electron/ sampleapp.AppImage --platform=linux --arch=x64 --overwrite --electron-version=v21.3.0"
+    "electron:build:linux": "yarn export && electron-packager ./src-electron/ sampleapp.AppImage --platform=linux --arch=x64 --overwrite --electron-version=v21.3.0"
   },
   "dependencies": {
     "@types/node": "18.11.9",
@@ -20,5 +20,9 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "electron": "^21.3.0",
+    "electron-packager": "^17.1.1"
   }
 }
