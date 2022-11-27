@@ -1,30 +1,63 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
-  "private": true,
+  "name": "ets",
+  "version": "1.1.0",
+  "description": "Electron Typescript and Svelte Starter",
+  "main": "dist/start.js",
   "scripts": {
-    "build": "rollup -c",
+    "build:main": "tsc --project tsconfig-main.json",
+    "build:ui": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "start": "electron ."
   },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
-    "rollup": "^2.3.4",
+  "build": {
+    "appId": "com.yourcompany.yourgroup.yourapp",
+    "directories": {
+      "output": "deploy"
+    },
+    "files": [
+      "dist/**"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "zip",
+      "certificateFile": "private/codesign.p12",
+      "certificatePassword": "",
+      "verifyUpdateCodeSignature": false
+    },
+    "linux": {
+      "category": "Utility"
+    }
+  },
+  "keywords": [
+    "electron",
+    "typescript",
+    "svelte"
+  ],
+  "author": "Paul Glezen <pglezen@isab.lacounty.gov>",
+  "license": "MIT",
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-typescript": "^8.2.0",
+    "@tsconfig/node12": "^1.0.7",
+    "@tsconfig/node14": "^1.0.1",
+    "@tsconfig/svelte": "^3.0.0",
+    "@types/luxon": "^2.0.4",
+    "luxon": "^2.0.2",
+    "rollup": "^2.42.1",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.0.0",
-    "svelte-check": "^2.0.0",
-    "svelte-preprocess": "^4.0.0",
-    "@rollup/plugin-typescript": "^8.0.0",
-    "typescript": "^4.0.0",
-    "tslib": "^2.0.0",
-    "@tsconfig/svelte": "^2.0.0"
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "svelte": "^3.35.0",
+    "svelte-check": "^2.2.0",
+    "svelte-preprocess": "^4.6.9",
+    "tslib": "^2.1.0"
   },
-  "dependencies": {
-    "sirv-cli": "^2.0.0"
+  "devDependencies": {
+    "electron": "^19.0.6"
   }
 }
