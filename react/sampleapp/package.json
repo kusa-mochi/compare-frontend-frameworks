@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export -o src-electron/tmp/",
-    "electron:build:linux": "yarn export && electron-packager ./src-electron/ sampleapp.AppImage --platform=linux --arch=x64 --asar=true --overwrite --electron-version=v21.3.0",
-    "electron:build:win": "yarn export && electron-packager ./src-electron/ sampleapp --platform=win32 --arch=x64 --asar=true --overwrite --electron-version=v21.3.0"
+    "electron:debugBuild:linux": "yarn export && electron-packager ./src-electron/ sampleapp.AppImage --platform=linux --arch=x64 --asar --overwrite --electron-version=v21.3.0",
+    "electron:debugBuild:win": "yarn export && electron-packager ./src-electron/ sampleapp --platform=win32 --arch=x64 --asar --overwrite --electron-version=v21.3.0"
   },
   "dependencies": {
     "@types/node": "18.11.9",
