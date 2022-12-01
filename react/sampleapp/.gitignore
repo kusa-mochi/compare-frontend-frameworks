@@ -15,6 +15,7 @@
 # production
 /build
 /sampleapp.AppImage-linux-x64
+/sampleapp-win32-x64
 
 # misc
 .DS_Store
