@@ -1,6 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Image from 'next/image';
+import TestImage from '../public/test.jpg';
+import styles from '../styles/Home.module.css';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 
 export default function Home() {
   return (
@@ -16,6 +18,12 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <TransformWrapper>
+          <TransformComponent>
+            <Image src={TestImage} width={640} height={427} alt="test image" />
+          </TransformComponent>
+        </TransformWrapper>
 
         <p className={styles.description}>
           Get started by editing{' '}
